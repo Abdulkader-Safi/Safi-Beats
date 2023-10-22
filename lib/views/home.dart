@@ -107,7 +107,13 @@ class Home extends StatelessWidget {
                             ),
                             transition: Transition.downToUp,
                           );
-                          controller.playSong(snapshot.data![index].uri, index);
+
+                          if (controller.playIndex.value == index &&
+                              controller.isPlaying.value) {
+                          } else {
+                            controller.playSong(
+                                snapshot.data![index].uri, index);
+                          }
                         },
                       ),
                     ),
