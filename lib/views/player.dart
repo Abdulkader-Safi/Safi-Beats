@@ -18,7 +18,6 @@ class Player extends StatefulWidget {
 
 class _PlayerState extends State<Player> {
   var controller = Get.find<PlayerController>();
-  Timer? timer;
 
   @override
   void initState() {
@@ -43,7 +42,6 @@ class _PlayerState extends State<Player> {
   @override
   void dispose() {
     super.dispose();
-    timer?.cancel();
   }
 
   @override
