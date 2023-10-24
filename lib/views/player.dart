@@ -107,7 +107,8 @@ class Player extends StatelessWidget {
                                 activeColor: sliderColor,
                                 onChanged: (newValue) {
                                   controller.changeDurationToSeconds(
-                                      newValue.toInt());
+                                    newValue.toInt(),
+                                  );
                                   newValue = newValue;
                                 },
                               ),
@@ -129,10 +130,18 @@ class Player extends StatelessWidget {
                         children: [
                           IconButton(
                             onPressed: () {
-                              controller.playSong(
-                                data[controller.playIndex.value - 1].uri,
-                                controller.playIndex.value - 1,
-                              );
+                              if (2.0 <= controller.value.value ||
+                                  controller.playIndex.value <= 0) {
+                                controller.playSong(
+                                  data[controller.playIndex.value].uri,
+                                  controller.playIndex.value,
+                                );
+                              } else {
+                                controller.playSong(
+                                  data[controller.playIndex.value - 1].uri,
+                                  controller.playIndex.value - 1,
+                                );
+                              }
                             },
                             icon: const Icon(
                               Icons.skip_previous_rounded,

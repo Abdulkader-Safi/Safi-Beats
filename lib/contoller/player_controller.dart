@@ -24,13 +24,20 @@ class PlayerController extends GetxController {
 
   updatePosition() {
     audioPlayer.durationStream.listen((d) {
-      duration.value = d.toString().split(',')[0];
+      duration.value = d.toString().split('.')[0];
       max.value = d!.inSeconds.toDouble();
     });
     audioPlayer.positionStream.listen((d) {
       position.value = d.toString().split('.')[0];
       value.value = d.inSeconds.toDouble();
     });
+
+    if (value.value >= max.value) {
+      playSong(
+        audioPlayer.nextIndex as String?,
+        playIndex.value + 1,
+      );
+    }
   }
 
   changeDurationToSeconds(second) {
