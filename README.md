@@ -14,7 +14,8 @@ Todo:
 3. [ ] search for audio files
 4. [ ] fix permissions issues
 5. [x] auto play audio after the playing audio end
-6. [ ] create playlist and add audio files to the playlist
+6. [ ] randomize the playback
+7. [ ] create playlist and add audio files to the playlist
 
 ---
 

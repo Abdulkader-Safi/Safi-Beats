@@ -26,10 +26,6 @@ class Home extends StatelessWidget {
             ),
           )
         ],
-        leading: const Icon(
-          Icons.sort_rounded,
-          color: whiteColor,
-        ),
         title: Text(
           "Beats",
           style: outStyle(

@@ -18,20 +18,32 @@ class Player extends StatefulWidget {
 
 class _PlayerState extends State<Player> {
   var controller = Get.find<PlayerController>();
+  var playbackType = "go";
+  var like = false;
 
   @override
   void initState() {
     super.initState();
 
     Timer.periodic(
-      const Duration(seconds: 2),
+      const Duration(seconds: 1),
       (e) => {
         if (controller.value.value >= controller.max.value)
           {
-            controller.playSong(
-              widget.data[controller.playIndex.value + 1].uri,
-              controller.playIndex.value + 1,
-            ),
+            if (playbackType == "go")
+              {
+                controller.playSong(
+                  widget.data[controller.playIndex.value + 1].uri,
+                  controller.playIndex.value + 1,
+                ),
+              }
+            else if (playbackType == "repeat")
+              {
+                controller.playSong(
+                  widget.data[controller.playIndex.value].uri,
+                  controller.playIndex.value,
+                ),
+              }
           }
       },
     );
@@ -139,6 +151,17 @@ class _PlayerState extends State<Player> {
                                 inactiveColor: bgColor,
                                 thumbColor: sliderColor,
                                 activeColor: sliderColor,
+                                onChangeEnd: (newValue) {
+                                  if (newValue.toInt() >=
+                                      controller.max.value) {
+                                    controller.playSong(
+                                      widget
+                                          .data[controller.playIndex.value + 1]
+                                          .uri,
+                                      controller.playIndex.value + 1,
+                                    );
+                                  }
+                                },
                                 onChanged: (newValue) {
                                   controller.changeDurationToSeconds(
                                     newValue.toInt(),
@@ -225,6 +248,62 @@ class _PlayerState extends State<Player> {
                               color: bgDarkColor,
                               size: 40,
                             ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 12,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              if (!like) {
+                                setState(() {
+                                  like = true;
+                                });
+                              } else {
+                                setState(() {
+                                  like = false;
+                                });
+                              }
+                            },
+                            icon: !like
+                                ? const Icon(
+                                    Icons.favorite_border,
+                                    color: bgDarkColor,
+                                    size: 40,
+                                  )
+                                : const Icon(
+                                    Icons.favorite,
+                                    color: bgDarkColor,
+                                    size: 40,
+                                  ),
+                          ),
+                          IconButton(
+                            onPressed: () {
+                              if (playbackType == "go") {
+                                setState(() {
+                                  playbackType = "repeat";
+                                });
+                              } else {
+                                setState(() {
+                                  playbackType = "go";
+                                });
+                              }
+                            },
+                            icon: playbackType == "go"
+                                ? const Icon(
+                                    Icons.arrow_right_alt_outlined,
+                                    color: bgDarkColor,
+                                    size: 40,
+                                  )
+                                : const Icon(
+                                    Icons.repeat_one,
+                                    color: bgDarkColor,
+                                    size: 40,
+                                  ),
                           ),
                         ],
                       )
