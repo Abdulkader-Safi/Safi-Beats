@@ -31,13 +31,6 @@ class PlayerController extends GetxController {
       position.value = d.toString().split('.')[0];
       value.value = d.inSeconds.toDouble();
     });
-
-    if (value.value >= max.value) {
-      playSong(
-        audioPlayer.nextIndex as String?,
-        playIndex.value + 1,
-      );
-    }
   }
 
   changeDurationToSeconds(second) {
