@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:beats/consts/colors.dart';
 import 'package:beats/consts/text_style.dart';
@@ -8,7 +9,10 @@ import 'package:get/get.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
 class Player extends StatefulWidget {
-  const Player({super.key, required this.data});
+  const Player({
+    super.key,
+    required this.data,
+  });
 
   final List<SongModel> data;
 
@@ -18,8 +22,9 @@ class Player extends StatefulWidget {
 
 class _PlayerState extends State<Player> {
   var controller = Get.find<PlayerController>();
-  var playbackType = "go";
-  var like = false;
+  var repeat = false;
+  var random = false;
+  var index = 0;
 
   @override
   void initState() {
@@ -30,30 +35,34 @@ class _PlayerState extends State<Player> {
       (e) => {
         if (controller.value.value >= controller.max.value)
           {
-            if (playbackType == "go")
+            if (random)
               {
+                index = Random().nextInt(widget.data.length - 1) + 1,
                 controller.playSong(
-                  widget.data[controller.playIndex.value + 1].uri,
-                  controller.playIndex.value + 1,
+                  widget.data[index].uri,
+                  index,
                 ),
               }
-            else if (playbackType == "repeat")
+            else
               {
-                controller.playSong(
-                  widget.data[controller.playIndex.value].uri,
-                  controller.playIndex.value,
-                ),
+                if (repeat)
+                  {
+                    controller.playSong(
+                      widget.data[controller.playIndex.value].uri,
+                      controller.playIndex.value,
+                    ),
+                  }
+                else if (!repeat)
+                  {
+                    controller.playSong(
+                      widget.data[controller.playIndex.value + 1].uri,
+                      controller.playIndex.value + 1,
+                    )
+                  }
               }
           }
       },
     );
-  }
-
-  /// cancel the timer when widget is disposed,
-  /// to avoid any active timer that is not executed yet
-  @override
-  void dispose() {
-    super.dispose();
   }
 
   @override
@@ -259,41 +268,41 @@ class _PlayerState extends State<Player> {
                         children: [
                           IconButton(
                             onPressed: () {
-                              if (!like) {
+                              if (!random) {
                                 setState(() {
-                                  like = true;
+                                  random = true;
                                 });
                               } else {
                                 setState(() {
-                                  like = false;
+                                  random = false;
                                 });
                               }
                             },
-                            icon: !like
+                            icon: !random
                                 ? const Icon(
-                                    Icons.favorite_border,
-                                    color: bgDarkColor,
+                                    Icons.shuffle,
+                                    color: Colors.red,
                                     size: 40,
                                   )
                                 : const Icon(
-                                    Icons.favorite,
+                                    Icons.shuffle,
                                     color: bgDarkColor,
                                     size: 40,
                                   ),
                           ),
                           IconButton(
                             onPressed: () {
-                              if (playbackType == "go") {
+                              if (!repeat) {
                                 setState(() {
-                                  playbackType = "repeat";
+                                  repeat = true;
                                 });
                               } else {
                                 setState(() {
-                                  playbackType = "go";
+                                  repeat = false;
                                 });
                               }
                             },
-                            icon: playbackType == "go"
+                            icon: !repeat
                                 ? const Icon(
                                     Icons.arrow_right_alt_outlined,
                                     color: bgDarkColor,

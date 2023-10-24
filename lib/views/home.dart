@@ -108,7 +108,9 @@ class Home extends StatelessWidget {
                               controller.isPlaying.value) {
                           } else {
                             controller.playSong(
-                                snapshot.data![index].uri, index);
+                              snapshot.data![index].uri,
+                              index,
+                            );
                           }
                         },
                       ),

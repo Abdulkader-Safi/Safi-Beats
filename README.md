@@ -14,7 +14,7 @@ Todo:
 3. [ ] search for audio files
 4. [ ] fix permissions issues
 5. [x] auto play audio after the playing audio end
-6. [ ] randomize the playback
+6. [x] randomize the playback
 7. [ ] create playlist and add audio files to the playlist
 
 ---
@@ -27,4 +27,4 @@ now when you run the project first time the project will crash but give permissi
 
 | Home                                                                            | player                                                                          |
 | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| ![Image 1]("./../assets/WhatsApp%20Image%202023-10-24%20at%201.46.09%20PM.jpeg) | ![Image 2]("./../assets/WhatsApp%20Image%202023-10-24%20at%201.46.08%20PM.jpeg) |
+| ![Image 1]("./../assets/WhatsApp%20Image%202023-10-24%20at%201.46.09%20PM.jpeg) | ![Image 2]("./../assets/WhatsApp%20Image%202023-10-24%20at%2010.32.31%20PM.jpeg) |
