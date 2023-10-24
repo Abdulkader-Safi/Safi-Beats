@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:beats/consts/colors.dart';
 import 'package:beats/consts/text_style.dart';
 import 'package:beats/contoller/player_controller.dart';
@@ -5,15 +7,47 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
-class Player extends StatelessWidget {
+class Player extends StatefulWidget {
   const Player({super.key, required this.data});
 
   final List<SongModel> data;
 
   @override
-  Widget build(BuildContext context) {
-    var controller = Get.find<PlayerController>();
+  State<Player> createState() => _PlayerState();
+}
 
+class _PlayerState extends State<Player> {
+  var controller = Get.find<PlayerController>();
+  Timer? timer;
+
+  @override
+  void initState() {
+    super.initState();
+
+    Timer.periodic(
+      const Duration(seconds: 2),
+      (e) => {
+        if (controller.value.value >= controller.max.value)
+          {
+            controller.playSong(
+              widget.data[controller.playIndex.value + 1].uri,
+              controller.playIndex.value + 1,
+            ),
+          }
+      },
+    );
+  }
+
+  /// cancel the timer when widget is disposed,
+  /// to avoid any active timer that is not executed yet
+  @override
+  void dispose() {
+    super.dispose();
+    timer?.cancel();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: bgColor,
       appBar: AppBar(),
@@ -32,7 +66,7 @@ class Player extends StatelessWidget {
                   ),
                   alignment: Alignment.center,
                   child: QueryArtworkWidget(
-                    id: data[controller.playIndex.value].id,
+                    id: widget.data[controller.playIndex.value].id,
                     type: ArtworkType.AUDIO,
                     artworkHeight: double.infinity,
                     artworkWidth: double.infinity,
@@ -62,7 +96,8 @@ class Player extends StatelessWidget {
                   () => Column(
                     children: [
                       Text(
-                        data[controller.playIndex.value].displayNameWOExt,
+                        widget
+                            .data[controller.playIndex.value].displayNameWOExt,
                         textAlign: TextAlign.center,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
@@ -76,7 +111,8 @@ class Player extends StatelessWidget {
                         height: 12,
                       ),
                       Text(
-                        data[controller.playIndex.value].artist.toString(),
+                        widget.data[controller.playIndex.value].artist
+                            .toString(),
                         style: outStyle(
                           weight: FontWeight.normal,
                           color: bgDarkColor,
@@ -133,12 +169,13 @@ class Player extends StatelessWidget {
                               if (2.0 <= controller.value.value ||
                                   controller.playIndex.value <= 0) {
                                 controller.playSong(
-                                  data[controller.playIndex.value].uri,
+                                  widget.data[controller.playIndex.value].uri,
                                   controller.playIndex.value,
                                 );
                               } else {
                                 controller.playSong(
-                                  data[controller.playIndex.value - 1].uri,
+                                  widget
+                                      .data[controller.playIndex.value - 1].uri,
                                   controller.playIndex.value - 1,
                                 );
                               }
@@ -181,7 +218,7 @@ class Player extends StatelessWidget {
                           IconButton(
                             onPressed: () {
                               controller.playSong(
-                                data[controller.playIndex.value + 1].uri,
+                                widget.data[controller.playIndex.value + 1].uri,
                                 controller.playIndex.value + 1,
                               );
                             },
