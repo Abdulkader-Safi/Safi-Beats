@@ -1,16 +1,12 @@
 # beats
 
-A new Flutter project.
+`search all audio files in android phone to be ablt to play it`
 
-## Getting Started
+this project is a clone of samsung music app that i use a lot
+and now i use another android phone not samsung and i can not use samsung music so I am building it myself from scratch
 
-This project is a starting point for a Flutter application.
+Features:
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. read all audio files on your device(android)
+2. list them all in the ui
+3. play, pause, replay, play next, and play previous
