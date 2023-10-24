@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:beats/consts/colors.dart';
 import 'package:beats/consts/text_style.dart';
 import 'package:beats/contoller/player_controller.dart';
@@ -12,6 +14,8 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var controller = Get.put(PlayerController());
+    List<SongModel>? data;
+    int index;
 
     return Scaffold(
       backgroundColor: bgDarkColor,
@@ -19,9 +23,27 @@ class Home extends StatelessWidget {
         backgroundColor: bgDarkColor,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              index = Random().nextInt(data!.length - 1) + 1;
+
+              Get.to(
+                () => Player(
+                  data: data!,
+                ),
+                transition: Transition.downToUp,
+              );
+
+              if (controller.playIndex.value == index &&
+                  controller.isPlaying.value) {
+              } else {
+                controller.playSong(
+                  data![index].uri,
+                  index,
+                );
+              }
+            },
             icon: const Icon(
-              Icons.search,
+              Icons.shuffle,
               color: whiteColor,
             ),
           )
@@ -51,6 +73,7 @@ class Home extends StatelessWidget {
               child: Text("No Song Found", style: outStyle()),
             );
           } else {
+            data = snapshot.data;
             return Padding(
               padding: const EdgeInsets.all(8.0),
               child: ListView.builder(
