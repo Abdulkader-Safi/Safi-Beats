@@ -12,13 +12,15 @@ Todo:
 1. [x] read all audio files on your device(android)
 2. [x] play, pause, replay, play next, and play previous
 3. [ ] search for audio files
-4. [ ] auto play audio after the playing audio end
-5. [ ] create playlist and add audio files to the playlist
+4. [ ] fix permissions issues
+5. [ ] auto play audio after the playing audio end
+6. [ ] create playlist and add audio files to the playlist
 
 ---
 
 This project is a Prototype
 I am working on new UI and List of features to create a new Music player
+now when you run the project first time the project will crash but give permissions page will appear accept persmissions the run the program again it will work normally  
 
 ---
 
