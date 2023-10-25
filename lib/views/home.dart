@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:beats/consts/colors.dart';
 import 'package:beats/consts/text_style.dart';
-import 'package:beats/contoller/player_controller.dart';
+import 'package:beats/controller/player_controller.dart';
 import 'package:beats/views/player.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

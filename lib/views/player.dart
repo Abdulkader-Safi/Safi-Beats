@@ -3,7 +3,7 @@ import 'dart:math';
 
 import 'package:beats/consts/colors.dart';
 import 'package:beats/consts/text_style.dart';
-import 'package:beats/contoller/player_controller.dart';
+import 'package:beats/controller/player_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:on_audio_query/on_audio_query.dart';
@@ -161,12 +161,32 @@ class _PlayerState extends State<Player> {
                                 onChangeEnd: (newValue) {
                                   if (newValue.toInt() >=
                                       controller.max.value) {
-                                    controller.playSong(
-                                      widget
-                                          .data[controller.playIndex.value + 1]
-                                          .uri,
-                                      controller.playIndex.value + 1,
-                                    );
+                                    if (controller.random.value) {
+                                      index = Random()
+                                              .nextInt(widget.data.length - 1) +
+                                          1;
+                                      controller.playSong(
+                                        widget.data[index].uri,
+                                        index,
+                                      );
+                                    } else {
+                                      if (controller.repeat.value) {
+                                        controller.playSong(
+                                          widget
+                                              .data[controller.playIndex.value]
+                                              .uri,
+                                          controller.playIndex.value,
+                                        );
+                                      } else {
+                                        controller.playSong(
+                                          widget
+                                              .data[controller.playIndex.value +
+                                                  1]
+                                              .uri,
+                                          controller.playIndex.value + 1,
+                                        );
+                                      }
+                                    }
                                   }
                                 },
                                 onChanged: (newValue) {
@@ -259,7 +279,7 @@ class _PlayerState extends State<Player> {
                         ],
                       ),
                       const SizedBox(
-                        height: 12,
+                        height: 20,
                       ),
                       Obx(
                         () => Row(
