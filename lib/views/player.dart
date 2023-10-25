@@ -22,8 +22,6 @@ class Player extends StatefulWidget {
 
 class _PlayerState extends State<Player> {
   var controller = Get.find<PlayerController>();
-  var repeat = false;
-  var random = false;
   var index = 0;
 
   @override
@@ -35,7 +33,7 @@ class _PlayerState extends State<Player> {
       (e) => {
         if (controller.value.value >= controller.max.value)
           {
-            if (random)
+            if (controller.random.value)
               {
                 index = Random().nextInt(widget.data.length - 1) + 1,
                 controller.playSong(
@@ -45,14 +43,14 @@ class _PlayerState extends State<Player> {
               }
             else
               {
-                if (repeat)
+                if (controller.repeat.value)
                   {
                     controller.playSong(
                       widget.data[controller.playIndex.value].uri,
                       controller.playIndex.value,
                     ),
                   }
-                else if (!repeat)
+                else
                   {
                     controller.playSong(
                       widget.data[controller.playIndex.value + 1].uri,
@@ -263,58 +261,46 @@ class _PlayerState extends State<Player> {
                       const SizedBox(
                         height: 12,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          IconButton(
-                            onPressed: () {
-                              if (!random) {
-                                setState(() {
-                                  random = true;
-                                });
-                              } else {
-                                setState(() {
-                                  random = false;
-                                });
-                              }
-                            },
-                            icon: !random
-                                ? const Icon(
-                                    Icons.shuffle,
-                                    color: Colors.red,
-                                    size: 40,
-                                  )
-                                : const Icon(
-                                    Icons.shuffle,
-                                    color: bgDarkColor,
-                                    size: 40,
-                                  ),
-                          ),
-                          IconButton(
-                            onPressed: () {
-                              if (!repeat) {
-                                setState(() {
-                                  repeat = true;
-                                });
-                              } else {
-                                setState(() {
-                                  repeat = false;
-                                });
-                              }
-                            },
-                            icon: !repeat
-                                ? const Icon(
-                                    Icons.arrow_right_alt_outlined,
-                                    color: bgDarkColor,
-                                    size: 40,
-                                  )
-                                : const Icon(
-                                    Icons.repeat_one,
-                                    color: bgDarkColor,
-                                    size: 40,
-                                  ),
-                          ),
-                        ],
+                      Obx(
+                        () => Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            IconButton(
+                              onPressed: () {
+                                controller.random.value =
+                                    !controller.random.value;
+                              },
+                              icon: !controller.random.value
+                                  ? const Icon(
+                                      Icons.shuffle,
+                                      color: Colors.red,
+                                      size: 40,
+                                    )
+                                  : const Icon(
+                                      Icons.shuffle,
+                                      color: bgDarkColor,
+                                      size: 40,
+                                    ),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                controller.repeat.value =
+                                    !controller.repeat.value;
+                              },
+                              icon: !controller.repeat.value
+                                  ? const Icon(
+                                      Icons.arrow_right_alt_outlined,
+                                      color: bgDarkColor,
+                                      size: 40,
+                                    )
+                                  : const Icon(
+                                      Icons.repeat_one,
+                                      color: bgDarkColor,
+                                      size: 40,
+                                    ),
+                            ),
+                          ],
+                        ),
                       )
                     ],
                   ),

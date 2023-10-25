@@ -16,10 +16,21 @@ class PlayerController extends GetxController {
   var max = 0.0.obs;
   var value = 0.0.obs;
 
+  var random = false.obs;
+  var repeat = false.obs;
+
   @override
   void onInit() {
     super.onInit();
     checkPermission();
+  }
+
+  setRandom(bool randomInput) {
+    random.value = randomInput;
+  }
+
+  setRepeat(bool repeatInput) {
+    repeat.value = repeatInput;
   }
 
   updatePosition() {
