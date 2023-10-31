@@ -20,6 +20,12 @@ Todo:
 5. [x] auto play audio after the playing audio end
 6. [x] randomize the playback
 7. [ ] create playlist and add audio files to the playlist
+8. [ ] finish working on the wireframe and the design (40%)
+
+---
+
+![Image 1]("./../assets/DesginWireFrame.png)
+[Figma Design WireFrame](https://www.figma.com/file/G2VxommQkOg88BJkbdMmnn/Safi-Beats?type=design&node-id=0-1&mode=design)
 
 ---
 
@@ -31,4 +37,4 @@ now when you run the project first time the project will crash but give permissi
 
 | Home                                                                            | player                                                                          |
 | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| ![Image 1]("./../assets/WhatsApp%20Image%202023-10-24%20at%2011.18.01%20PM.jpeg) | ![Image 2]("./../assets/WhatsApp%20Image%202023-10-24%20at%2011.18.01%20PM%20(1).jpeg) |
+| ![Image 1]("./../assets/AllFilesPage.jpeg) | ![Image 2]("./../assets/PlayerPage.jpeg) |
