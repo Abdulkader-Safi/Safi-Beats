@@ -30,7 +30,7 @@ Todo:
 ---
 
 I am working on new UI and List of features to create a new Music player
-now when you run the project first time the project will crash but permissions page will appear accept permissions then run the program again it will work normally
+now when you run the project first time the project will crash but permissions page will appear accept permissions the run the program again it will work normally
 
 ---
 
