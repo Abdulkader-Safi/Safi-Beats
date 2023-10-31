@@ -31,10 +31,10 @@ Todo:
 
 This project is a Prototype
 I am working on new UI and List of features to create a new Music player
-now when you run the project first time the project will crash but give permissions page will appear accept persmissions the run the program again it will work normally  
+now when you run the project first time the project will crash but give permissions page will appear accept persmissions the run the program again it will work normally
 
 ---
 
-| Home                                                                            | player                                                                          |
-| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Home                                       | player                                   |
+| ------------------------------------------ | ---------------------------------------- |
 | ![Image 1]("./../assets/AllFilesPage.jpeg) | ![Image 2]("./../assets/PlayerPage.jpeg) |
