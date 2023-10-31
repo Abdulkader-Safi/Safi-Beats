@@ -20,12 +20,17 @@ Todo:
 5. [x] auto play audio after the playing audio end
 6. [x] randomize the playback
 7. [ ] create playlist and add audio files to the playlist
-8. [ ] finish working on the wireframe and the design (40%)
+8. [x] finish working on the wireframe and the design
 
 ---
 
-![Image 1]("./../assets/DesginWireFrame.png)
-[Figma Design WireFrame](https://www.figma.com/file/G2VxommQkOg88BJkbdMmnn/Safi-Beats?type=design&node-id=0-1&mode=design)
+![Image WireFrame]("./../assets/DesginWireFrame.png)
+[Figma Design - WireFrame](https://www.figma.com/file/G2VxommQkOg88BJkbdMmnn/Safi-Beats?type=design&node-id=0-1&mode=design)
+
+---
+
+![Image Colored]("./../assets/NewDesign.png)
+[Figma Design - Final Design](https://www.figma.com/file/G2VxommQkOg88BJkbdMmnn/Safi-Beats?type=design&node-id=31-78&mode=design)
 
 ---
 
