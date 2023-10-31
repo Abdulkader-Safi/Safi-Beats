@@ -1,5 +1,9 @@
 # beats
 
+<p align="center">
+  <img src="./assets/Logo.png" width=20% height=20%>
+</p>
+
 `search all audio files in android phone to be able to play it`
 
 this project is a clone of samsung music app that i use a lot
