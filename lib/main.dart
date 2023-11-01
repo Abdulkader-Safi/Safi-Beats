@@ -1,4 +1,4 @@
-import 'package:beats/views/home.dart';
+import 'package:beats/views/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
           elevation: 0,
         ),
       ),
-      home: const Home(),
+      home: const HomeScreen(),
     );
   }
 }
