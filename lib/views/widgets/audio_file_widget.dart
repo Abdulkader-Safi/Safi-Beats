@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class PlayListWidget extends StatelessWidget {
-  const PlayListWidget({
+class AudioFileWidget extends StatelessWidget {
+  const AudioFileWidget({
     super.key,
     required this.name,
-    required this.numberOfTracks,
+    required this.time,
   });
 
   final String name;
-  final int numberOfTracks;
+  final String time;
 
   @override
   Widget build(BuildContext context) {
@@ -61,11 +61,32 @@ class PlayListWidget extends StatelessWidget {
                     ],
                   ),
                 ),
-                Text(
-                  "$numberOfTracks tracks",
-                  style: const TextStyle(
-                    color: Color.fromARGB(128, 255, 255, 255),
-                  ),
+                Row(
+                  children: [
+                    Text(
+                      time.toString(),
+                      style: const TextStyle(
+                        color: Color.fromARGB(128, 255, 255, 255),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 2,
+                    ),
+                    const Icon(
+                      Icons.timer,
+                      color: Color.fromARGB(128, 255, 255, 255),
+                    ),
+                    const SizedBox(
+                      width: 2,
+                    ),
+                    InkWell(
+                      onTap: () {},
+                      child: const Icon(
+                        Icons.add_circle,
+                        color: Color.fromARGB(128, 255, 255, 255),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

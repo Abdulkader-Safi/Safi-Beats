@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 class BottomPlayerWidget extends StatelessWidget {
   const BottomPlayerWidget({
     super.key,
-    required this.whiteWithHalfOpacities,
   });
-
-  final Color whiteWithHalfOpacities;
 
   @override
   Widget build(BuildContext context) {
@@ -47,10 +44,10 @@ class BottomPlayerWidget extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Text(
+                        const Text(
                           "name",
                           style: TextStyle(
-                            color: whiteWithHalfOpacities,
+                            color: Color.fromARGB(128, 255, 255, 255),
                           ),
                         ),
                       ],
@@ -58,22 +55,22 @@ class BottomPlayerWidget extends StatelessWidget {
                   ),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.35,
-                    child: Row(
+                    child: const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Icon(
                           Icons.skip_previous_outlined,
-                          color: whiteWithHalfOpacities,
+                          color: Color.fromARGB(128, 255, 255, 255),
                           size: 34,
                         ),
                         Icon(
                           Icons.play_arrow_outlined,
-                          color: whiteWithHalfOpacities,
+                          color: Color.fromARGB(128, 255, 255, 255),
                           size: 34,
                         ),
                         Icon(
                           Icons.skip_next_outlined,
-                          color: whiteWithHalfOpacities,
+                          color: Color.fromARGB(128, 255, 255, 255),
                           size: 34,
                         )
                       ],

@@ -1,14 +1,14 @@
+import 'package:beats/views/favorite_screen.dart';
 import 'package:beats/views/widgets/bottom_player_widget.dart';
 import 'package:beats/views/widgets/play_list_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var whiteWithHalfOpacities = const Color.fromARGB(128, 255, 255, 255);
-
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -17,13 +17,13 @@ class HomeScreen extends StatelessWidget {
           style: TextStyle(),
         ),
         backgroundColor: const Color(0xFF34495E),
-        actions: [
+        actions: const [
           Icon(
             Icons.search,
             size: 24.0,
-            color: whiteWithHalfOpacities,
+            color: Color.fromARGB(128, 255, 255, 255),
           ),
-          const SizedBox(
+          SizedBox(
             width: 23.0,
           ),
         ],
@@ -48,12 +48,21 @@ class HomeScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: Column(
                   children: [
+                    const SizedBox(
+                      height: 10,
+                    ),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         InkWell(
+                          onTap: () {
+                            Get.to(
+                              () => const FavoriteScreen(),
+                              transition: Transition.downToUp,
+                            );
+                          },
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -67,8 +76,11 @@ class HomeScreen extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(25),
                                 ),
                               ),
+                              const SizedBox(
+                                height: 5,
+                              ),
                               const Text(
-                                "All Files",
+                                "Favorite",
                                 style: TextStyle(
                                   color: Colors.white,
                                 ),
@@ -76,10 +88,10 @@ class HomeScreen extends StatelessWidget {
                               const SizedBox(
                                 height: 2,
                               ),
-                              Text(
+                              const Text(
                                 "1000  tracks",
                                 style: TextStyle(
-                                  color: whiteWithHalfOpacities,
+                                  color: Color.fromARGB(128, 255, 255, 255),
                                 ),
                               ),
                             ],
@@ -99,6 +111,9 @@ class HomeScreen extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(25),
                                 ),
                               ),
+                              const SizedBox(
+                                height: 5,
+                              ),
                               const Text(
                                 "All Files",
                                 style: TextStyle(
@@ -108,10 +123,10 @@ class HomeScreen extends StatelessWidget {
                               const SizedBox(
                                 height: 2,
                               ),
-                              Text(
+                              const Text(
                                 "1000  tracks",
                                 style: TextStyle(
-                                  color: whiteWithHalfOpacities,
+                                  color: Color.fromARGB(128, 255, 255, 255),
                                 ),
                               ),
                             ],
@@ -131,6 +146,9 @@ class HomeScreen extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(25),
                                 ),
                               ),
+                              const SizedBox(
+                                height: 5,
+                              ),
                               const Text(
                                 "All Files",
                                 style: TextStyle(
@@ -140,10 +158,10 @@ class HomeScreen extends StatelessWidget {
                               const SizedBox(
                                 height: 2,
                               ),
-                              Text(
+                              const Text(
                                 "1000  tracks",
                                 style: TextStyle(
-                                  color: whiteWithHalfOpacities,
+                                  color: Color.fromARGB(128, 255, 255, 255),
                                 ),
                               ),
                             ],
@@ -173,63 +191,53 @@ class HomeScreen extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {},
-                            child: Icon(
+                            child: const Icon(
                               Icons.add_circle,
-                              color: whiteWithHalfOpacities,
+                              color: Color.fromARGB(128, 255, 255, 255),
                             ),
                           ),
                         ],
                       ),
                     ),
-                    PlayListWidget(
+                    const PlayListWidget(
                       name: 'PlayList1',
                       numberOfTracks: 64,
-                      whiteWithHalfOpacities: whiteWithHalfOpacities,
                     ),
-                    PlayListWidget(
+                    const PlayListWidget(
                       name: 'PlayList2',
                       numberOfTracks: 64,
-                      whiteWithHalfOpacities: whiteWithHalfOpacities,
                     ),
-                    PlayListWidget(
+                    const PlayListWidget(
                       name: 'PlayList1',
                       numberOfTracks: 64,
-                      whiteWithHalfOpacities: whiteWithHalfOpacities,
                     ),
-                    PlayListWidget(
+                    const PlayListWidget(
                       name: 'PlayList2',
                       numberOfTracks: 64,
-                      whiteWithHalfOpacities: whiteWithHalfOpacities,
                     ),
-                    PlayListWidget(
+                    const PlayListWidget(
                       name: 'PlayList1',
                       numberOfTracks: 64,
-                      whiteWithHalfOpacities: whiteWithHalfOpacities,
                     ),
-                    PlayListWidget(
+                    const PlayListWidget(
                       name: 'PlayList2',
                       numberOfTracks: 64,
-                      whiteWithHalfOpacities: whiteWithHalfOpacities,
                     ),
-                    PlayListWidget(
+                    const PlayListWidget(
                       name: 'PlayList1',
                       numberOfTracks: 64,
-                      whiteWithHalfOpacities: whiteWithHalfOpacities,
                     ),
-                    PlayListWidget(
+                    const PlayListWidget(
                       name: 'PlayList2',
                       numberOfTracks: 64,
-                      whiteWithHalfOpacities: whiteWithHalfOpacities,
                     ),
-                    PlayListWidget(
+                    const PlayListWidget(
                       name: 'PlayList1',
                       numberOfTracks: 64,
-                      whiteWithHalfOpacities: whiteWithHalfOpacities,
                     ),
-                    PlayListWidget(
+                    const PlayListWidget(
                       name: 'PlayList2',
                       numberOfTracks: 100,
-                      whiteWithHalfOpacities: whiteWithHalfOpacities,
                     ),
                     const SizedBox(
                       height: 80,
@@ -239,7 +247,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-          BottomPlayerWidget(whiteWithHalfOpacities: whiteWithHalfOpacities),
+          const BottomPlayerWidget(),
         ],
       ),
     );
