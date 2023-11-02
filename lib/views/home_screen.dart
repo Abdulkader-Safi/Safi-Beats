@@ -1,4 +1,6 @@
+import 'package:beats/views/all_files_screen.dart';
 import 'package:beats/views/favorite_screen.dart';
+import 'package:beats/views/recently_played_screen.dart';
 import 'package:beats/views/widgets/bottom_player_widget.dart';
 import 'package:beats/views/widgets/play_list_widget.dart';
 import 'package:flutter/material.dart';
@@ -59,6 +61,47 @@ class HomeScreen extends StatelessWidget {
                         InkWell(
                           onTap: () {
                             Get.to(
+                              () => const AllFilesScreen(),
+                              transition: Transition.downToUp,
+                            );
+                          },
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Container(
+                                height: 150,
+                                width: MediaQuery.of(context).size.width * 0.3,
+                                decoration: BoxDecoration(
+                                  color: Colors.black,
+                                  borderRadius: BorderRadius.circular(25),
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 5,
+                              ),
+                              const Text(
+                                "All Files",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 2,
+                              ),
+                              const Text(
+                                "1000  tracks",
+                                style: TextStyle(
+                                  color: Color.fromARGB(128, 255, 255, 255),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            Get.to(
                               () => const FavoriteScreen(),
                               transition: Transition.downToUp,
                             );
@@ -98,6 +141,12 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ),
                         InkWell(
+                          onTap: () {
+                            Get.to(
+                              () => const RecentlyPlayedScreen(),
+                              transition: Transition.downToUp,
+                            );
+                          },
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -115,42 +164,7 @@ class HomeScreen extends StatelessWidget {
                                 height: 5,
                               ),
                               const Text(
-                                "All Files",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                ),
-                              ),
-                              const SizedBox(
-                                height: 2,
-                              ),
-                              const Text(
-                                "1000  tracks",
-                                style: TextStyle(
-                                  color: Color.fromARGB(128, 255, 255, 255),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        InkWell(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Container(
-                                height: 150,
-                                width: MediaQuery.of(context).size.width * 0.3,
-                                decoration: BoxDecoration(
-                                  color: Colors.black,
-                                  borderRadius: BorderRadius.circular(25),
-                                ),
-                              ),
-                              const SizedBox(
-                                height: 5,
-                              ),
-                              const Text(
-                                "All Files",
+                                "Recently Played",
                                 style: TextStyle(
                                   color: Colors.white,
                                 ),
