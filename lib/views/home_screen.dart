@@ -48,6 +48,139 @@ class HomeScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: Column(
                   children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        InkWell(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Container(
+                                height: 150,
+                                width: MediaQuery.of(context).size.width * 0.3,
+                                decoration: BoxDecoration(
+                                  color: Colors.black,
+                                  borderRadius: BorderRadius.circular(25),
+                                ),
+                              ),
+                              const Text(
+                                "All Files",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 2,
+                              ),
+                              Text(
+                                "1000  tracks",
+                                style: TextStyle(
+                                  color: whiteWithHalfOpacities,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        InkWell(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Container(
+                                height: 150,
+                                width: MediaQuery.of(context).size.width * 0.3,
+                                decoration: BoxDecoration(
+                                  color: Colors.black,
+                                  borderRadius: BorderRadius.circular(25),
+                                ),
+                              ),
+                              const Text(
+                                "All Files",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 2,
+                              ),
+                              Text(
+                                "1000  tracks",
+                                style: TextStyle(
+                                  color: whiteWithHalfOpacities,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        InkWell(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Container(
+                                height: 150,
+                                width: MediaQuery.of(context).size.width * 0.3,
+                                decoration: BoxDecoration(
+                                  color: Colors.black,
+                                  borderRadius: BorderRadius.circular(25),
+                                ),
+                              ),
+                              const Text(
+                                "All Files",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 2,
+                              ),
+                              Text(
+                                "1000  tracks",
+                                style: TextStyle(
+                                  color: whiteWithHalfOpacities,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 5.0,
+                        vertical: 15.0,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          const Text(
+                            "PlayList",
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {},
+                            child: Icon(
+                              Icons.add_circle,
+                              color: whiteWithHalfOpacities,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                     PlayListWidget(
                       name: 'PlayList1',
                       numberOfTracks: 64,
