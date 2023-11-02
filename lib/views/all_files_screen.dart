@@ -8,8 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class AllFilesScreen extends StatelessWidget {
+  const AllFilesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
